@@ -1,5 +1,6 @@
 package org.techtown.recycleviewexample;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,15 +19,16 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
     }
 
     @NonNull
-    @org.jetbrains.annotations.NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contacts_list_item, parent, false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ContactsRecViewAdapter.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.txtName.setText(contacts.get(position).getName());
     }
 
     @Override
@@ -42,7 +44,7 @@ public class ContactsRecViewAdapter extends RecyclerView.Adapter<ContactsRecView
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView txtName;
-        public ViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
         }
