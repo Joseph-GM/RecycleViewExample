@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         contacts.add(new Contact("Changhwan Lee", "changhwan.lee@gm.com","https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_704239_16269130774725174.jpg"));
         contacts.add(new Contact("Byungjong Yu", "byungjong.yu@gm.com","http://pds.joins.com/news/component/htmlphoto_mmdata/201604/21/htm_20160421164314998976.jpg"));
 
-        ContactsRecViewAdapter adapter = new ContactsRecViewAdapter();
+        ContactsRecViewAdapter adapter = new ContactsRecViewAdapter(this);
         adapter.setContacts(contacts);
 
         contactsRecView.setAdapter(adapter);
-        contactsRecView.setLayoutManager(new LinearLayoutManager(this));
+        contactsRecView.setLayoutManager(new GridLayoutManager(this, 2));
 
     }
 }
